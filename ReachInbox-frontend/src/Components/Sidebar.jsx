@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import { TbHomeFilled } from "react-icons/tb";
 import { MdPersonSearch } from "react-icons/md";

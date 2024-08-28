@@ -1,6 +1,9 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import Logo from '../assets/image.png';
+
 import { Link } from 'react-router-dom';
+
 import { FcGoogle } from 'react-icons/fc';
 
 export default function Login() {

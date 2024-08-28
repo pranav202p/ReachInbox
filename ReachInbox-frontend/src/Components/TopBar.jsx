@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import { Moon, Sun } from 'lucide-react';
 import { FaAngleDown } from "react-icons/fa6";
