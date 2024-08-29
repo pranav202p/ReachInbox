@@ -6,9 +6,9 @@ import Login from './Pages/Login';
 import Home from './Pages/Home';
 import LeadDetails from './Components/LeadDetails';
 import InboxHeader from './Components/Inboxheader';
-import Viewmail from './Components/Viewmail';
+import ViewMail from './Components/ViewMail';
 import InBox from './Pages/InBox';
-import EmailList from './Components/EmailList';
+
 
 
 
@@ -24,7 +24,7 @@ function App() {
       <Route path="/Inbox" element={<InBox />} />
       <Route path="/lead" element={<LeadDetails/>}/>
       <Route path='/search' element={<InboxHeader/>}/>
-      <Route path='/view' element={<Viewmail/>}/>
+      <Route path='/view' element={<ViewMail/>}/>
     </Routes>
    </Router>
    </DarkModeProvider>

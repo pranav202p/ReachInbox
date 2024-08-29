@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect } from 'react';
 import Sidebar from '../Components/Sidebar';
-import TopBar from '../Components/TopBar.jsx';
+import TopBar from '../Components/TopBar';
 import Image from '../assets/image.svg';
 import { useDarkMode } from '../Context/DarkModeContext';
 export default function Home() {

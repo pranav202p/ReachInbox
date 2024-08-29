@@ -7,7 +7,7 @@ import axios from "axios"
 import { FaAngleDown } from "react-icons/fa6";
 import {  Zap, Eye, Type, Link, Image, Smile, Users, Code } from 'lucide-react';
 
-export default function ViewMailHeader() {
+export default function ViewMail() {
   const { isDarkMode } = useDarkMode();
   const { threadId } = useThreadId();
   const [emailData, setEmailData] = useState(null);
