@@ -7,15 +7,20 @@ const LeadDetails = () => {
     return (
       <div className={`h-full overflow-auto p-6 border ${isDarkMode ? 'bg-white text-black border-slate-300' : 'bg-black text-white border-gray-700'}`}>
           <div className="mb-10">
-              <h2 className={`text-lg mb-6 p-2 pl-4 border rounded-lg ${isDarkMode ? 'bg-slate-100 text-black border-slate-300' : 'bg-zinc-900 text-white border-gray-700'}`}>Lead Details</h2>
-              <div className="space-y-7">
-                  <DetailItem label="Name" value="Orlando" />
-                  <DetailItem label="Contact No" value="+54-9062827869" />
-                  <DetailItem label="Email ID" value="orlando@gmail.com" />
-                  <DetailItem label="Linkedin" value="linkedin.com/in/timvadde/" />
-                  <DetailItem label="Company Name" value="Reachinbox" />
-              </div>
-          </div>
+  <h2
+    className={`text-lg mb-6 p-2 pl-4 border rounded-lg ${isDarkMode ? 'bg-slate-100 text-black border-slate-300' : 'bg-zinc-900 text-white border-gray-700'} sm:text-sm  md:text-lg`}
+  >
+    Lead Details
+  </h2>
+  <div className="space-y-7 sm:space-y-5 md:space-y-4">
+    <DetailItem label="Name" value="Orlando" />
+    <DetailItem label="Contact No" value="+54-9062827869" />
+    <DetailItem label="Email ID" value="orlando@gmail.com" />
+    <DetailItem label="LinkedIn" value="linkedin.com/in/timvadde/" />
+    <DetailItem label="Company Name" value="Reachinbox" />
+  </div>
+</div>
+
           
           <div>
               <h2 className={`text-lg mb-1 border p-1 pl-4 rounded-lg ${isDarkMode ? 'bg-slate-100 text-black border-slate-300' : 'bg-zinc-900 text-white border-gray-700'}`}>Activities</h2>
@@ -41,11 +46,12 @@ const LeadDetails = () => {
 
 
 const DetailItem = ({ label, value }) => (
-  <div className="flex justify-between">
-    <span className="text-gray-400">{label}</span>
-    <span>{value}</span>
+  <div className="flex flex-col sm:flex-row justify-between sm:items-center space-y-2 sm:space-y-0">
+    <span className="text-gray-400 text-sm sm:text-base md:text-lg">{label}</span>
+    <span className="text-sm sm:text-base md:text-lg">{value}</span>
   </div>
 );
+
 
 const ActivityItem = ({ step, status, date }) =>  {
   const { isDarkMode, toggleDarkMode } = useDarkMode();

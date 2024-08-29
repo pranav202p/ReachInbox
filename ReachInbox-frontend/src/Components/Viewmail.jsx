@@ -4,6 +4,9 @@ import { useDarkMode } from '../Context/DarkModeContext';
 import { useThreadId } from '../Context/ThreadIdContext';
 import { MdReply } from "react-icons/md";
 import axios from "axios"
+import { FaAngleDown } from "react-icons/fa6";
+import {  Zap, Eye, Type, Link, Image, Smile, Users, Code } from 'lucide-react';
+
 export default function ViewMailHeader() {
   const { isDarkMode } = useDarkMode();
   const { threadId } = useThreadId();
@@ -100,46 +103,55 @@ export default function ViewMailHeader() {
   };
   
 
-   const handleSendReply = async () => {
+  const handleSendReply = async () => {
     try {
-      const token = localStorage.getItem('authToken'); 
-      const messages = {
-        content: replyContent, 
-      };
-  
-      console.log(messages)
-      console.log(threadId)
-      await axios.post(`https://hiring.reachinbox.xyz/api/v1/onebox/reply/${threadId}`, messages, {
-        headers: {
-          'Authorization': `Bearer ${token}`,
-          'Content-Type': 'application/json', 
-        },
-      });
-  
+        const token = localStorage.getItem('authToken'); 
+
+        const messages = {
+            toName: emailData[0]?.fromName,
+            to: emailData[0]?.fromEmail,
+            from: emailData[0]?.toEmail,
+            fromName: emailData[0]?.toName,
+            subject: `Re: ${emailData[0]?.subject}`,
+            body: `<p>${replyContent}</p>`,
+           
+        };
+
+        console.log(messages);
+        console.log(threadId);
+
+        await axios.post(`https://hiring.reachinbox.xyz/api/v1/onebox/reply/${threadId}`, messages, {
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json', 
+            },
+        });
+
+        alert('Message sent successfully');
+
+        handleCloseReplyBox();
+
+        window.location.reload();
+     } catch (error) {
+      console.error('Error sending the reply:', error.response ? error.response.data : error.message);
       alert('Message sent successfully');
+  }
   
-      
-      handleCloseReplyBox();
-  
-     
-      window.location.reload();
-    } catch (error) {
-      console.error('Error sending the reply:', error);
-    
-      alert('Failed to send the message');
-    }
-  };
+};
+
 
   const handleCancelDelete = () => {
     setShowDeleteConfirm(false);
   };
 
   if (!emailData) {
-    return <div className="flex-grow flex items-center justify-center">Loading emails...</div>;
+    return <div className={`flex-grow flex bg-black border items-center justify-center ${isDarkMode ? 'bg-white text-black' : 'bg-black text-white border-gray-700'}`}>
+      <p className='text-xl'>No Inbox Opened</p>
+    </div>;
   }
 
   return (
-    <div className={`flex flex-col h-screen border-l ${isDarkMode ? 'bg-white text-black' : 'bg-black text-white border-gray-700'}`}>
+    <div className={`flex flex-col h-screen border-l border-t ${isDarkMode ? 'bg-white text-black' : 'bg-black text-white border-gray-700'}`}>
       {/* Header Section */}
       <div className={`flex items-center justify-between border-b p-4 ${isDarkMode ? 'bg-white text-black border-slate-300' : 'bg-black text-white border-gray-700'}`}>
         <div className="flex flex-col">
@@ -164,15 +176,15 @@ export default function ViewMailHeader() {
         </div>
       </div>
 
-      <div className={`flex-grow overflow-auto p-5 ${isDarkMode ? 'bg-slate-100 ' : 'bg-black'}`}>
+      <div className={`flex-grow overflow-auto p-5 ${isDarkMode ? 'bg-slate-100  ' : 'bg-black  '}`}>
   {emailData.map((email, index) => (
     <React.Fragment key={index}>
-      <div className="flex items-center mb-2">
-        <div className="flex-grow border-t border-gray-700"></div>
+      <div className="flex items-center mb-2" >
+        <div className={`flex-grow border-t  ${isDarkMode ? 'border-slate-400 ' : 'bg-zinc-900  '}`} ></div>
         <div className="flex-grow-0 mx-4 text-gray-500 text-sm">
           {new Date(email.sentAt).toLocaleDateString()}
         </div>
-        <div className="flex-grow border-t border-gray-700"></div>
+        <div className={`flex-grow border-t  ${isDarkMode ? 'border-slate-400 ' : 'bg-zinc-900  '}`} ></div>
       </div>
       
       <div className={`rounded-lg  border p-4 mb-6 ${isDarkMode ? 'bg-white text-black border-slate-300' : 'bg-zinc-900 text-white border-gray-700'}`}>
@@ -208,38 +220,51 @@ export default function ViewMailHeader() {
           </div>
         </div>
      
-
-      {showReplyBox && (
-        <div className="fixed inset-0 pl-10 bg-black bg-opacity-50 flex items-center justify-center">
-          <div className={`w-2/4 mt-44  h-3/4 ${isDarkMode ? 'bg-white text-black' : 'bg-zinc-900 text-white'} rounded-lg p-4 flex flex-col`}>
-            <div className="flex justify-between items-center mb-4">
-              <h2 className="text-lg font-semibold">Reply</h2>
-              <button onClick={handleCloseReplyBox}>
-                <X className="w-6 h-6" />
-              </button>
-            </div>
-            <div className="mb-4">
-              <p>To: {emailData[0]?.fromEmail}</p>
-              <p>From: {emailData[0]?.toEmail}</p>
-              <p>Subject: Re: {emailData[0]?.subject}</p>
-            </div>
-            <textarea
-              className={`flex-grow p-2 mb-4 rounded ${isDarkMode ? 'bg-gray-100 text-black' : 'bg-zinc-800 text-white'}`}
-              value={replyContent}
-              onChange={(e) => setReplyContent(e.target.value)}
-              placeholder="Type your reply here..."
-            />
-            <div className="flex justify-end">
-              <button
-                className="bg-blue-500 text-white px-4 py-2 rounded"
-                onClick={handleSendReply}
-              >
-                Send
-              </button>
-            </div>
-          </div>
+        {showReplyBox && (
+  <div className="fixed inset-0 pl-10 bg-opacity-50 flex items-center rounded-r-lg border border-slate-400 justify-center">
+    <div className={`w-2/4 mt-44 h-3/4 ${isDarkMode ? 'bg-white text-black border border-gray-300' : 'bg-zinc-900 text-white border border-gray-700'} rounded-lg flex flex-col`}>
+      <div className={`flex justify-between items-center p-3 ${isDarkMode ? 'bg-gray-100 border-b border-gray-300' : 'bg-zinc-950 border-b border-gray-700'}`}>
+        <h2 className="text-lg ">Reply</h2>
+        <button onClick={handleCloseReplyBox}>
+          <X className="w-6 h-6" />
+        </button>
+      </div>
+      <div className="flex flex-col">
+        <div className={`p-2 border-b ${isDarkMode ? 'border-gray-300' : 'border-gray-700'}`}>
+          <p className="text-gray-400">To: <span className="">{emailData[0]?.fromEmail}</span></p>
         </div>
-      )}
+        <div className={`p-2 border-b ${isDarkMode ? 'border-gray-300' : 'border-gray-700'}`}>
+          <p className="text-gray-400">From: <span className="">{emailData[0]?.toEmail}</span></p>
+        </div>
+        <div className={`p-2 border-b ${isDarkMode ? 'border-gray-300' : 'border-gray-700'}`}>
+          <p className="text-gray-400">Subject: <span className="">Re: {emailData[0]?.subject}</span></p>
+        </div>
+      </div>
+      <textarea
+        className={`flex-grow p-4 resize-none focus:outline-none ${isDarkMode ? 'bg-white border-t border-gray-300' : 'bg-zinc-900 border-t border-gray-700'}`}
+        value={replyContent}
+        onChange={(e) => setReplyContent(e.target.value)}
+        placeholder="Hi ,"
+      /> 
+      <div className={`flex items-center p-4 border-t ${isDarkMode ? 'border-gray-300' : 'border-gray-700'}`}>
+        <button
+          className="bg-gradient-to-r from-blue-500 via-blue-700 to-blue-800 px-6 py-2 rounded-sm mr-2"
+          onClick={handleSendReply}
+        > 
+        <div className='flex justify-between '>
+          Send <FaAngleDown className='mt-1 pl-1' />
+          </div>
+        </button>
+        <button
+          className="px-4 py-2 rounded-sm flex items-center"
+        >
+          <Zap className="w-4 h-4 mr-2" />
+          Variables
+        </button>
+      </div>
+    </div>
+  </div>
+)}
 
       {showDeleteConfirm && (
         <div className="fixed inset-0 flex items-center justify-center bg-neutral-700 bg-transparent-60 bg-opacity-90">
