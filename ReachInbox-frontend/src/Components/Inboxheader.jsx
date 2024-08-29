@@ -7,7 +7,7 @@ const InboxHeader = () => {
   const { isDarkMode } = useDarkMode();
   return (
     <div className={`flex flex-col h-screen ${isDarkMode ? 'bg-white text-black' : 'bg-black text-white'}`}>
-      <div className={`border-b p-4 space-y-3 ${isDarkMode ? 'border-slate-300' : 'border-gray-700'}`}>
+      <div className={`border-b p-4 space-y-3 w-11/12 mx-auto ${isDarkMode ? 'border-slate-300' : 'border-gray-700'}`}>
         <div className="flex justify-between items-center">
           <div className="flex items-center space-x-2">
             <span className="text-blue-400 font-semibold">All Inbox(s)</span>

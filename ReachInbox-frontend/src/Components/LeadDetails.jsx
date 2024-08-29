@@ -27,8 +27,9 @@ const LeadDetails = () => {
                   </div>
               </div>
               <div className="space-y-10 mt-2 relative">
-                  <div className="absolute left-5 top-0 bottom-1 w-px bg-gray-600"></div>
-                  <ActivityItem step={1} status="sent" date="3rd, Feb" />
+                  <div className={`absolute left-5 top-0 bottom-1 w-px  ${isDarkMode ? 'bg-black' : 'bg-white '}`}></div>
+              
+                  <ActivityItem  step={1} status="sent" date="3rd, Feb" />
                   <ActivityItem step={2} status="opened" date="5th, Feb" />
                   <ActivityItem step={3} status="opened" date="5th, Feb" />
               </div>
@@ -47,7 +48,7 @@ const DetailItem = ({ label, value }) => (
 
 const ActivityItem = ({ step, status, date }) => (
   <div className="flex items-start relative z-10 ">
-    <div className={`w-10 h-10 rounded-full flex  items-center justify-center mr-7 ${status === 'sent' ? 'bg-gray-600' : 'bg-gray-700'}`}>
+    <div className="w-10 h-10 rounded-full flex  items-center justify-center mr-7  bg-gray-200">
       <Mail size={24} className="mx-auto" />
     </div>
     <div className="flex-1">
