@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import React from 'react';
 import Sidebar from '../Components/Sidebar';
-import TopBar from '../Components/Topbar.jsx';
+import TopBar from '../Components/TopBar.jsx';
 import { useDarkMode } from '../Context/DarkModeContext';
 import LeadDetails from '../Components/LeadDetails';
 import InboxHeader from '../Components/Inboxheader';
