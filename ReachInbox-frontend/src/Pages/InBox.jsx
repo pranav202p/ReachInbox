@@ -5,7 +5,7 @@ import TopBar from '../Components/TopBar.jsx';
 import { useDarkMode } from '../Context/DarkModeContext';
 import LeadDetails from '../Components/LeadDetails';
 import InboxHeader from '../Components/Inboxheader';
-import Viewmail from '../Components/ViewMail.jsx';
+import ViewMail from '../Components/ViewMail.jsx';
 
 export default function InBox() {
     const { isDarkMode } = useDarkMode();
@@ -21,7 +21,7 @@ export default function InBox() {
                         <InboxHeader />
                     </div>
                     <div className="w-full sm:w-2/3 md:w-2/3  flex flex-col overflow-hidden">
-                        <Viewmail />
+                        <ViewMail />
                     </div>
                     <div className=" sm:block sm:w-1/3 md:w-1/4  flex flex-col overflow-hidden">
                         <LeadDetails />
