@@ -4,7 +4,8 @@ import { Moon, Sun } from 'lucide-react';
 import { FaAngleDown } from "react-icons/fa6";
 
 import { useDarkMode } from '../Context/DarkModeContext';
-const TopBar = () => {
+
+export default function TopBar  () {
     const { isDarkMode, toggleDarkMode } = useDarkMode();
 
   return (
@@ -40,4 +41,4 @@ const TopBar = () => {
   );
 };
 
-export default TopBar;
+
