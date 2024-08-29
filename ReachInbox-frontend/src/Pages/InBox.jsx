@@ -19,10 +19,10 @@ export default function InBox() {
                     <div className="w-full sm:w-1/3 md:w-1/4 flex flex-col overflow-hidden">
                         <InboxHeader />
                     </div>
-                    <div className="w-full sm:w-2/3 md:w-2/3 overflow-auto">
+                    <div className="w-full sm:w-2/3 md:w-2/3  flex flex-col overflow-hidden">
                         <Viewmail />
                     </div>
-                    <div className="hidden sm:block sm:w-1/3 md:w-1/4 overflow-auto">
+                    <div className=" sm:block sm:w-1/3 md:w-1/4  flex flex-col overflow-hidden">
                         <LeadDetails />
                     </div>
                 </div>
