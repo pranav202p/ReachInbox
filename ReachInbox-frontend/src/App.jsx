@@ -8,6 +8,7 @@ import LeadDetails from './Components/LeadDetails';
 import InboxHeader from './Components/Inboxheader';
 import Viewmail from './Components/Viewmail';
 import InBox from './Pages/InBox';
+import EmailList from './Components/EmailList';
 
 
 

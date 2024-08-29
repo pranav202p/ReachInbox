@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { ChevronDown, MoreHorizontal } from 'lucide-react';
+import { Send } from 'lucide-react';
+
 import { useDarkMode } from '../Context/DarkModeContext';
 
 export default function EmailList() {
@@ -11,7 +12,7 @@ export default function EmailList() {
   useEffect(() => {
     const fetchEmails = async () => {
       try {
-        const token = localStorage.getItem('token'); 
+        const token = localStorage.getItem('authToken');
         const response = await fetch('https://hiring.reachinbox.xyz/api/v1/onebox/list', {
           headers: {
             'Authorization': `Bearer ${token}`,
@@ -32,31 +33,27 @@ export default function EmailList() {
     fetchEmails();
   }, []);
 
-  if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error}</div>;
+  if (isLoading) return <div className="flex-grow flex items-center justify-center">Loading...</div>;
+  if (error) return <div className="flex-grow flex items-center justify-center">Error: {error}</div>;
 
   return (
-    <div className={`space-y-2 ${isDarkMode ? 'bg-black text-white' : 'bg-white text-black'}`}>
+    <div className={`flex-grow overflow-auto ${isDarkMode ? 'bg-white text-black' : 'bg-black text-white'}`}>
       {emails.map((email) => (
-        <div key={email.id} className={`flex items-center justify-between border p-4 ${isDarkMode ? 'border-gray-700' : 'border-slate-300'}`}>
-          <div className="flex flex-col">
-            <span className="font-semibold">{email.fromEmail}</span>
-            <span className="text-sm text-gray-400">{email.subject}</span>
+        <div key={email.id} className={`border-b ${isDarkMode ? 'border-slate-300' : 'border-gray-700'}`}>
+          <div className="flex items-center justify-between p-4">
+            <div className="flex flex-col">
+              <span className="font-semibold">{email.fromEmail}</span>
+              <span className="text-sm text-gray-400">{email.subject}</span>
+            </div>
           </div>
-          <div className="flex items-center space-x-4">
-            <button className={`flex items-center border px-3 py-1 rounded text-sm ${isDarkMode ? 'bg-zinc-800 border-gray-700' : 'bg-white border-slate-300'}`}>
-              <div className="relative mr-2">
-                <div className="w-5 h-5 bg-zinc-400 rounded-full"></div>
-                <div className="absolute inset-1 bg-yellow-400 rounded-full"></div>
-              </div>
-              {email.isRead ? 'Read' : 'Unread'}
-              <ChevronDown className="ml-2 w-4 h-4" />
+          <div className="flex items-center space-x-2 p-2">
+            <button className={`flex items-center px-3 py-1 rounded-full text-sm ${isDarkMode ? 'bg-slate-200 text-green-500' : 'bg-zinc-800 text-green-500'}`}>
+              <span className="h-2.5 w-2.5 bg-green-500 rounded-full mr-2"></span>
+              Interested
             </button>
-            <button className={`px-3 py-1 border rounded text-sm ${isDarkMode ? 'bg-zinc-800 border-gray-700' : 'bg-white border-slate-300'}`}>
-              Move
-            </button>
-            <button className={`p-1 rounded border ${isDarkMode ? 'bg-zinc-800 border-gray-700' : 'bg-white border-slate-300'}`}>
-              <MoreHorizontal className="w-5 h-5" />
+            <button className={`flex items-center px-3 py-1 rounded-full text-sm ${isDarkMode ? 'bg-slate-200 text-gray-800' : 'bg-zinc-800 text-gray-200'}`}>
+              <Send className="  w-4 h-4 mr-1" />
+              Campaign Name
             </button>
           </div>
         </div>

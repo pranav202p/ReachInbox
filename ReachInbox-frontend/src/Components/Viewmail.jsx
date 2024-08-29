@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ChevronDown, MoreHorizontal } from 'lucide-react';
 import { useDarkMode } from '../Context/DarkModeContext';
+
 export default function Viewmailheader() {
   const { isDarkMode, toggleDarkMode } = useDarkMode();
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -31,6 +32,7 @@ export default function Viewmailheader() {
           <MoreHorizontal className="w-5 h-5" />
         </button>
       </div>
+    
     </div>
     );
   }
