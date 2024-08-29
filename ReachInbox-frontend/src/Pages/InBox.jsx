@@ -5,7 +5,7 @@ import TopBar from '../Components/TopBar.jsx';
 import { useDarkMode } from '../Context/DarkModeContext';
 import LeadDetails from '../Components/LeadDetails';
 import InboxHeader from '../Components/Inboxheader';
-import ViewMail from '../Components/ViewMail.jsx';
+import ViewMail from '../Components/Viewmail.jsx';
 
 export default function InBox() {
     const { isDarkMode } = useDarkMode();

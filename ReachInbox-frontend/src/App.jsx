@@ -6,7 +6,7 @@ import Login from './Pages/Login';
 import Home from './Pages/Home';
 import LeadDetails from './Components/LeadDetails';
 import InboxHeader from './Components/Inboxheader';
-import ViewMail from './Components/ViewMail';
+import ViewMail from './Components/Viewmail';
 
 
 import InBox from './Pages/InBox';
