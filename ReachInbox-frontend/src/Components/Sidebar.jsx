@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { TbHomeFilled } from "react-icons/tb";
 import { MdPersonSearch } from "react-icons/md";
 import { IoMdMail } from "react-icons/io";
@@ -21,30 +22,30 @@ const Sidebar = () => {
         />
       </div>
       <nav className={`space-y-10 p-3  ${isDarkMode ?  'bg-white text-gray-400 ':'bg-zinc-800 text-zinc-400   ' }`}>
-        <a href="#" className="flex items-center justify-center p-1 hover:bg-zinc-500 hover:text-white" >
+        <Link to="#" className="flex items-center justify-center p-1 hover:bg-zinc-500 hover:text-white" >
           < TbHomeFilled size={32}/>
-        </a>
-        <a href="#" className="flex items-center justify-center p-1 hover:bg-zinc-500 hover:text-white">
+        </Link>
+        <Link to="#" className="flex items-center justify-center p-1 hover:bg-zinc-500 hover:text-white">
         <MdPersonSearch size={32}/>
-        </a>
-        <a href="#" className="flex items-center justify-center p-1 relative hover:bg-zinc-500 hover:text-white">
+        </Link>
+        <Link to="#" className="flex items-center justify-center p-1 relative hover:bg-zinc-500 hover:text-white">
         <IoMdMail  size={32}/>
-        </a>
-        <a href="#" className="flex items-center justify-center p-1  hover:bg-zinc-500 hover:text-white">
+        </Link>
+        <Link to="#" className="flex items-center justify-center p-1  hover:bg-zinc-500 hover:text-white">
         <IoIosSend size={32}/>
-        </a>
-        <a href="#" className="flex items-center justify-center p-1 hover:bg-zinc-500 hover:text-white">
+        </Link>
+        <Link to="#" className="flex items-center justify-center p-1 hover:bg-zinc-500 hover:text-white">
         < FaThList size={24}/>
-        </a>
-        <a href="#" className="flex items-center justify-center p-1 hover:bg-zinc-500 hover:text-white">
+        </Link>
+        <Link to="/Inbox" className="flex items-center justify-center p-1 hover:bg-zinc-500 hover:text-white">
         < BsFillInboxFill size={32}/>
-        </a>
-        <a href="#" className="flex items-center justify-center p-1 hover:bg-zinc-500 hover:text-white">
+        </Link>
+        <Link to="#" className="flex items-center justify-center p-1 hover:bg-zinc-500 hover:text-white">
         <MdOutlineBarChart size={32}/>
-        </a>
+        </Link>
       </nav>
       <div className="mt-auto">
-        <a href="#" className="flex items-center justify-center">
+        <Link to="#" className="flex items-center justify-center">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-8 w-8"
@@ -59,7 +60,7 @@ const Sidebar = () => {
               d="M5 12h14m-7-7v14"
             />
           </svg>
-        </a>
+        </Link>
       </div>
     </div>
   );

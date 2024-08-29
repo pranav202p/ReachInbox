@@ -1,11 +1,25 @@
 /* eslint-disable no-unused-vars */
-import React from 'react';
+import React, { useEffect } from 'react';
 import Sidebar from '../Components/Sidebar';
 import TopBar from '../Components/Topbar';
 import Image from '../assets/image.svg';
 import { useDarkMode } from '../Context/DarkModeContext';
 export default function Home() {
   const { isDarkMode, toggleDarkMode } = useDarkMode();
+ 
+  useEffect(() => {
+ 
+    const params = new URLSearchParams(window.location.search);
+    const token = params.get('token');
+    console.log('Extracted Token:', token);
+    if (token) {
+     
+      localStorage.setItem('authToken', token);
+
+      
+    }
+  }, []);
+  
   return (
     <div className="flex min-h-screen bg-gray-100" >
       <Sidebar />

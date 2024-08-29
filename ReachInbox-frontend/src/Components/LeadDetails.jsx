@@ -4,9 +4,9 @@ import { useDarkMode } from '../Context/DarkModeContext';
 const LeadDetails = () => {
     const { isDarkMode, toggleDarkMode } = useDarkMode();
   return (
-    <div className={`bg-gray-800 text-white p-4 rounded-lg max-w-sm  ${isDarkMode ?  'bg-white text-black  border-slate-300':'bg-zinc-800 text-white  border-gray-700' }`}>
-      <div className="mb-10">
-        <h2 className="text-lg font-bold mb-6 bg-gray-700 p-2 pl-4 rounded-lg">Lead Details</h2>
+    <div className={` text-white p-4 border 'max-w-sm max-h-screen ${isDarkMode ?  'bg-white text-black  border-slate-300':'bg-black text-white  border-gray-700' }`}>
+      <div className="mb-10 ">
+        <h2 className={`text-lg  mb-6  p-2 pl-4  border rounded-lg  ${isDarkMode ?  'bg-slate-100 text-black border-slate-300 ':'bg-zinc-900 text-white  border-gray-700' }`}>Lead Details</h2>
         <div className="space-y-7">
           <DetailItem label="Name" value="Orlando" />
           <DetailItem label="Contact No" value="+54-9062827869" />
@@ -17,7 +17,7 @@ const LeadDetails = () => {
       </div>
       
       <div>
-        <h2 className="text-lg font-bold  mb-2 bg-gray-700 p-2 pl-4 rounded-lg">Activities</h2>
+        <h2 className={`text-lg   mb-2 border p-2 pl-4 rounded-lg ${isDarkMode ?  'bg-slate-100 text-black border-slate-300 ':'bg-zinc-900 text-white  border-gray-700' }`}>Activities</h2>
         <div className="text-sm  mt-10 mb-4">
           <div className="font-bold text-lg mt-4">Campaign Name</div>
           <div className="flex space-x-4 mt-4 text-gray-400">
@@ -45,7 +45,7 @@ const DetailItem = ({ label, value }) => (
 );
 
 const ActivityItem = ({ step, status, date }) => (
-  <div className="flex items-start relative z-10 mb-4">
+  <div className="flex items-start relative z-10 ">
     <div className={`w-10 h-10 rounded-full flex  items-center justify-center mr-7 ${status === 'sent' ? 'bg-gray-600' : 'bg-gray-700'}`}>
       <Mail size={24} className="mx-auto" />
     </div>
