@@ -45,8 +45,8 @@ export default function EmailList() {
           className={`border-b p-3 pb-2 ${isDarkMode ? 'border-slate-300' : 'border-gray-700'}`}
           style={{ maxWidth: '93%', margin: '0 auto' }} 
         >
-          <div className="flex items-center justify-between  p-4 pb-0">
-            <div className="flex items-center space-x-7">
+          <div className="flex items-center justify-between  p-2 pb-0">
+            <div className="flex items-center space-x-8">
               <span className="font-semibold">{email.fromEmail}</span>
               <span className="text-xs  text-gray-500">May 7</span>
             </div>
