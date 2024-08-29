@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Send } from 'lucide-react';
 import { useDarkMode } from '../Context/DarkModeContext';
+import { useThreadId } from '../Context/ThreadIdContext';
 
 export default function EmailList() {
   const { isDarkMode } = useDarkMode();
+  const { setThreadId } = useThreadId(); // Access setThreadId from context
   const [emails, setEmails] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -42,6 +44,7 @@ export default function EmailList() {
       {emails.map((email) => (
         <div 
           key={email.id} 
+          onClick={() => setThreadId(email.threadId)}
           className={`border-b p-3 pb-2 ${isDarkMode ? 'border-slate-300' : 'border-gray-700'}`}
           style={{ maxWidth: '93%', margin: '0 auto' }} 
         >
@@ -55,11 +58,17 @@ export default function EmailList() {
             <span className="text-sm text-gray-400">{email.subject}</span>
           </div>
           <div className="flex items-center space-x-2 p-2 pb-4 pt-0">
-            <button className={`flex items-center px-3 py-1 rounded-full text-sm ${isDarkMode ? 'bg-slate-200 text-green-500' : 'bg-zinc-800 text-green-500'}`}>
+            <button 
+              className={`flex items-center px-3 py-1 rounded-full text-sm ${isDarkMode ? 'bg-slate-200 text-green-500' : 'bg-zinc-800 text-green-500'}`}
+               // Set threadId on button click
+            >
               <span className="h-2.5 w-2.5 bg-green-500 rounded-full mr-2"></span>
               Interested
             </button>
-            <button className={`flex items-center px-3 py-1  rounded-full text-sm ${isDarkMode ? 'bg-slate-200 text-gray-800' : 'bg-zinc-800 text-gray-200'}`}>
+            <button 
+              className={`flex items-center px-3 py-1  rounded-full text-sm ${isDarkMode ? 'bg-slate-200 text-gray-800' : 'bg-zinc-800 text-gray-200'}`}
+              onClick={() => setThreadId(email.threadId)} // Set threadId on button click
+            >
               <Send className="w-4 h-4 mr-1" />
               Campaign Name
             </button>

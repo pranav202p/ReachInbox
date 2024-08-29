@@ -1,8 +1,9 @@
 import React from 'react';
 import { Mail, Send ,MailOpen} from 'lucide-react';
 import { useDarkMode } from '../Context/DarkModeContext';
+
 const LeadDetails = () => {
-    const { isDarkMode, toggleDarkMode } = useDarkMode();
+  const { isDarkMode, toggleDarkMode } = useDarkMode();
     return (
       <div className={`h-full overflow-auto p-6 border ${isDarkMode ? 'bg-white text-black border-slate-300' : 'bg-black text-white border-gray-700'}`}>
           <div className="mb-10">
@@ -46,9 +47,11 @@ const DetailItem = ({ label, value }) => (
   </div>
 );
 
-const ActivityItem = ({ step, status, date }) => (
+const ActivityItem = ({ step, status, date }) =>  {
+  const { isDarkMode, toggleDarkMode } = useDarkMode();
+ return (
   <div className="flex items-start relative z-10 ">
-    <div className="w-10 h-10 rounded-full flex  items-center justify-center mr-7  bg-gray-200">
+    <div className={`w-10 h-10 rounded-full flex border  items-center justify-center mr-7   ${isDarkMode ?  'bg-white text-slate-300': 'bg-zinc-900'  }`}>
       <Mail size={24} className="mx-auto" />
     </div>
     <div className="flex-1">
@@ -68,6 +71,7 @@ const ActivityItem = ({ step, status, date }) => (
       </div>
     </div>
   </div>
-);
+  );
+};
 
 export default LeadDetails;
