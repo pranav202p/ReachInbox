@@ -6,8 +6,8 @@ import { ThreadIdProvider } from './Context/ThreadIdContext.jsx'
 
 createRoot(document.getElementById('root')).render(
   <ThreadIdProvider>
-  <StrictMode>
+  
     <App />
-  </StrictMode>
+ 
   </ThreadIdProvider>,
 )
