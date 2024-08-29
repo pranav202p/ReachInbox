@@ -4,7 +4,7 @@ import { useDarkMode } from '../Context/DarkModeContext';
 const LeadDetails = () => {
     const { isDarkMode, toggleDarkMode } = useDarkMode();
     return (
-      <div className={`h-full overflow-auto p-2 border ${isDarkMode ? 'bg-white text-black border-slate-300' : 'bg-black text-white border-gray-700'}`}>
+      <div className={`h-full overflow-auto p-6 border ${isDarkMode ? 'bg-white text-black border-slate-300' : 'bg-black text-white border-gray-700'}`}>
           <div className="mb-10">
               <h2 className={`text-lg mb-6 p-2 pl-4 border rounded-lg ${isDarkMode ? 'bg-slate-100 text-black border-slate-300' : 'bg-zinc-900 text-white border-gray-700'}`}>Lead Details</h2>
               <div className="space-y-7">
@@ -18,15 +18,15 @@ const LeadDetails = () => {
           
           <div>
               <h2 className={`text-lg mb-1 border p-1 pl-4 rounded-lg ${isDarkMode ? 'bg-slate-100 text-black border-slate-300' : 'bg-zinc-900 text-white border-gray-700'}`}>Activities</h2>
-              <div className="text-sm mt-10 mb-1">
+              <div className="text-sm mt-5 mb-1">
                   <div className="font-bold text-lg mt-2">Campaign Name</div>
-                  <div className="flex space-x-4 mt-4 text-gray-400">
+                  <div className="flex space-x-4 mt-3 text-gray-400">
                       <span>3 Steps</span>
                       <div className="h-5 w-px bg-gray-600"></div>
                       <span>5 Days in Sequence</span>
                   </div>
               </div>
-              <div className="space-y-10 mt-2 relative">
+              <div className="space-y-8 mt-1 relative">
                   <div className={`absolute left-5 top-0 bottom-1 w-px  ${isDarkMode ? 'bg-black' : 'bg-white '}`}></div>
               
                   <ActivityItem  step={1} status="sent" date="3rd, Feb" />

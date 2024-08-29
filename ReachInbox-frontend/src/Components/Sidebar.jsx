@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { TbHomeFilled } from "react-icons/tb";
 import { MdPersonSearch } from "react-icons/md";
@@ -10,8 +10,32 @@ import { BsFillInboxFill } from "react-icons/bs";
 import { FaThList } from "react-icons/fa";
 import { MdOutlineBarChart } from "react-icons/md";
 import { useDarkMode } from '../Context/DarkModeContext';
+import {jwtDecode} from 'jwt-decode';
+
 const Sidebar = () => {
+  const [initial, setInitial] = useState('');
+  const [bgColor, setBgColor] = useState('');
     const { isDarkMode } = useDarkMode();
+
+  useEffect(() => {
+    
+    const token = localStorage.getItem('authToken');
+
+    if (token) {
+     
+      const decodedToken = jwtDecode(token);
+      console.log(decodedToken)
+      const firstName = decodedToken?.user?.firstName || '';
+      console.log("Nam",firstName)
+
+      // Get the first letter of the first name
+      if (firstName) {
+        setInitial(firstName.charAt(0).toUpperCase());
+      }
+
+      
+    }
+  }, []);
   return (
     <div className={`w-20 flex flex-col items-center border py-4 ${isDarkMode ?  'bg-white text-black  border-slate-300':'bg-zinc-800 text-white border border-gray-700' }`}>
       <div className="mb-14 border">
@@ -22,7 +46,7 @@ const Sidebar = () => {
         />
       </div>
       <nav className={`space-y-10 p-3  ${isDarkMode ?  'bg-white text-gray-400 ':'bg-zinc-800 text-zinc-400   ' }`}>
-        <Link to="#" className="flex items-center justify-center p-1 hover:bg-zinc-500 hover:text-white" >
+        <Link to="/home" className="flex items-center justify-center p-1 hover:bg-zinc-500 hover:text-white" >
           < TbHomeFilled size={32}/>
         </Link>
         <Link to="#" className="flex items-center justify-center p-1 hover:bg-zinc-500 hover:text-white">
@@ -46,20 +70,12 @@ const Sidebar = () => {
       </nav>
       <div className="mt-auto">
         <Link to="#" className="flex items-center justify-center">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-8 w-8"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M5 12h14m-7-7v14"
-            />
-          </svg>
+        <div
+      className="w-11 h-11 flex bg-amber-900 items-center justify-center rounded-full text-white font-bold"
+   
+    >
+      {initial}
+    </div>
         </Link>
       </div>
     </div>
