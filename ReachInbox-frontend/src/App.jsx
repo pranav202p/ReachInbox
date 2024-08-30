@@ -22,7 +22,7 @@ function App() {
    <Router>
     <Routes>
       <Route path="/" element={<Login />} />
-      <Route path="https://reach-inbox-ecru.vercel.app/home" element={<Home />} />
+      <Route path="/home" element={<Home />} />
       <Route path="/Inbox" element={<InBox />} />
       <Route path="/lead" element={<LeadDetails/>}/>
       <Route path='/search' element={<InboxHeader/>}/>
