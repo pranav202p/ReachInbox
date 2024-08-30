@@ -9,7 +9,7 @@ import { FcGoogle } from 'react-icons/fc';
 export default function Login() {
     const handleGoogleSignIn = () => {
       
-        window.location.href = 'https://hiring.reachinbox.xyz/api/v1/auth/google-login?redirect_to=https://reach-inbox-ecru.vercel.app/home';
+        window.location.href = 'https://hiring.reachinbox.xyz/api/v1/auth/google-login?redirect_to=https://reach-inbox-ecru.vercel.app/';
 
       };
       

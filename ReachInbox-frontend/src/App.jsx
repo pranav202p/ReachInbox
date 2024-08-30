@@ -21,8 +21,8 @@ function App() {
     <DarkModeProvider>
    <Router>
     <Routes>
-      <Route path="/" element={<Login />} />
-      <Route path="/home" element={<Home />} />
+      <Route path="/" element={<Home />} />
+      <Route path="/home" element={<Login />} />
       <Route path="/Inbox" element={<InBox />} />
       <Route path="*" element={<Login />} />
       {/* <Route path="/lead" element={<LeadDetails/>}/>
