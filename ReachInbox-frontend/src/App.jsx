@@ -21,14 +21,11 @@ function App() {
     <DarkModeProvider>
    <Router>
     <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/home" element={<Login />} />
+      <Route path="/" element={<Login />} />
+      <Route path="/home" element={<Home/>} />
       <Route path="/Inbox" element={<InBox />} />
       <Route path="*" element={<Login />} />
-      {/* <Route path="/lead" element={<LeadDetails/>}/>
-      <Route path='/search' element={<InboxHeader/>}/>
-      <Route path='/view' element={<ViewMail/>}/> */}
-    </Routes>
+      </Routes>
    </Router>
    </DarkModeProvider>
   )
