@@ -64,10 +64,7 @@ You can access the live version of ReachInbox [here](https://reach-inbox-ecru.ve
 - Secure API calls for email handling.
 <!-- Add more features as needed -->
 
-## API Calls Used
-You can add the following section to your `README.md` file under the "API Calls" section:
 
----
 
 ## API Calls Used
 
@@ -101,4 +98,4 @@ You can add the following section to your `README.md` file under the "API Calls"
 
 ## Credits
 This project was developed by Pranav. Special thanks to all contributors and libraries used in the development of this project.
-```
+
