@@ -24,9 +24,10 @@ function App() {
       <Route path="/" element={<Login />} />
       <Route path="/home" element={<Home />} />
       <Route path="/Inbox" element={<InBox />} />
-      <Route path="/lead" element={<LeadDetails/>}/>
+      <Route path="*" element={<Login />} />
+      {/* <Route path="/lead" element={<LeadDetails/>}/>
       <Route path='/search' element={<InboxHeader/>}/>
-      <Route path='/view' element={<ViewMail/>}/>
+      <Route path='/view' element={<ViewMail/>}/> */}
     </Routes>
    </Router>
    </DarkModeProvider>
