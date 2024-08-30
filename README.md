@@ -14,13 +14,13 @@ You can access the live version of ReachInbox [here](https://reach-inbox-ecru.ve
 
 ## Screenshots
 ### Login Page
-![Login Page](link-to-your-screenshot1.png)
+![Login Page](https://raw.githubusercontent.com/pranav202p/image/main/Screenshot%202024-08-30%20073443.png)
 
 ### Home Page
-![Home Page](link-to-your-screenshot2.png)
+![Home Page](https://raw.githubusercontent.com/pranav202p/image/main/Screenshot%202024-08-30%20073512.png)
 
-
-
+### Light Mode
+![Light Mode](https://raw.githubusercontent.com/pranav202p/image/main/Screenshot%202024-08-30%20073552.png)
 
 
 ---
