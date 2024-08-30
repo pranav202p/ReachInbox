@@ -13,7 +13,7 @@ export default function Login() {
         localStorage.setItem('authToken', token);
 
         
-        window.location.href = `http://localhost:5173/home?token=${token}`;
+        window.location.href = `https://reach-inbox-ecru.vercel.app/home?token=${token}`;
     };
 
     return (
